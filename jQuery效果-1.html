@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        width: 200px;
+        height: 200px;
+        background-color: aquamarine;
+        display: none;
+    }
+</style>
+<script src="jquery.min.js"></script>
+
+<body>
+    <!-- <button>显示</button>
+    <button>隐藏</button>
+    <button>切换</button> -->
+
+    <!-- <button>下拉滑动</button>
+    <button>上拉滑动</button>
+    <button>切换滑动</button> -->
+
+    <button>淡入效果</button>
+    <button>淡出效果</button>
+    <button>淡入淡出切换</button>
+    <button>修改透明度</button>
+    <div></div>
+    <script>
+        $(function() {
+            //1.显示效果
+            // $("button").eq(0).click(function() {
+            //     $('div').show("slow", function() {
+            //         //回调函数 当动画显示弹出对话框
+            //         alert(0);
+            //     });
+            // })
+            // $("button").eq(1).click(function() {
+            //     $('div').hide("slow", function() {
+            //         //回调函数 当动画消失弹出对话框
+            //         alert(1);
+            //     });
+            // })
+            // $("button").eq(2).click(function() {
+            //         $('div').toggle("slow");
+            //     })
+            //     //一般情况，不加参数，直接显示和隐藏就可以了
+
+            //     //2.滑动效果
+            // $("button").eq(0).click(function() {
+            //     //下拉滑动
+            //     //首先要把元素 display 设为 none
+            //     $('div').slideDown();
+            // })
+            // $("button").eq(1).click(function() {
+            //     //上拉滑动
+            //     $('div').slideUp();
+            // })
+            // $("button").eq(2).click(function() {
+            //     //切换滑动
+            //     $('div').slideToggle();
+            // })
+
+            //5.淡入淡出效果
+            $("button").eq(0).click(function() {
+                //淡入
+                $('div').fadeIn(2000);
+            })
+            $("button").eq(1).click(function() {
+                //淡出
+                $('div').fadeOut();
+            })
+            $("button").eq(2).click(function() {
+                //淡入淡出切换
+                $('div').fadeToggle();
+            })
+            $("button").eq(2).click(function() {
+                //修改透明度：`fadeTo([speed,opacity,[easing],[fn])`  
+                //opacity透明度必须写，取值0-1之间，speed也必须写
+                $('div').fadeTo(1000, 0.5);
+            })
+        })
+    </script>
+</body>
+
+</html>

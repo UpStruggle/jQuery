@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        //1.等页面DOM加载完毕后再执行js代码
+        $(document).ready(function(){
+            $('div').hide();  //将盒子隐藏
+        })
+        //2.方法二
+        $(function(){
+            $('div').hide(); //实现的结果是一样的
+        })
+
+        var div = document.querySelector('div');
+        //DOM对象转换为jQuery对象
+        $(div); 
+        //jQuery对象转换为DOM对象
+        $('video')[0].play();//视频播放
+        $('video').get[0].play();
+    </script>
+    
+    <div></div>
+    <video src="#"></video>
+   
+</body>
+</html>

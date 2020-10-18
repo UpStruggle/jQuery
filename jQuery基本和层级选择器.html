@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+    <div>我是div</div>
+    <div class="nav">我是nav div</div>
+    <p>我是p</p>
+    <ol>
+        <li>我是ol的</li>
+        <li>我是ol的</li>
+        <li>我是ol的</li>
+    </ol>
+    <ul>
+        <li>我是ul的</li>
+        <li>我是ul的</li>
+        <li>我是ul的</li>
+    </ul>
+    <script>
+       $(function(){
+        console.log($(".nav"));;//选取出 我是div
+        console.log($("ol li"));//选取ol里面的li
+        //获取页面中四个div
+        $("div");
+        //给四个div设置颜色 jQuery不能使用style
+        //隐式迭代，即给匹配到的所有元素进行循环遍历，执行相应的方法，而不用我们再进行循环，简化操作，方便调用
+        $("div").css("background","pink");//给所有div盒子背景改为粉色
+        $("ol li").css("color","blue");//给所有ol里面的li的字体改为蓝色
+        $("ol li:eq(2)").css("color","red");//给ol里面的第三个li改为红色
+        $("ol li").eq(2).css("color","yellow");//跟上面效果一样，更推荐这种
+        //判断是否有某个类名
+        console.log($('div:first').hasClass("current"));//返回结果为true或false
+       })
+    </script>
+</body>
+</html>

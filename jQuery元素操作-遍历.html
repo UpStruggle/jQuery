@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery元素操作</title>
+</head>
+<script src="jquery.min.js"></script>
+
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+</body>
+<script>
+    $(function() {
+        //如果针对同一类元素做不同操作，需要用到遍历元素（类似for 但比for强大）
+        //1.each()方法遍历元素
+        //把盒子内容改成不同颜色
+        var arr = ["red", "green", "blue"];
+        var sum = 0;
+        $("div").each(function(index, domEle) {
+            //回调函数第一个参数一定是索引号 可以自己指定索引号名称
+            //第二个参数一定是DOM元素对象
+            console.log(index);
+            console.log(domEle);
+            //DOM对象没有css方法
+            $(domEle).css("color", arr[index]); //先转化为jquery对象，才能使用css方法
+            //把每个盒子内容取出相加
+            sum += parseInt($(domEle).text()); //先把内容转化为数字型
+            console.log(sum);
+        })
+
+        //2.$.each()方法
+        //语法：`$.each(object,function(index,element){......}`
+        //$.each()方法可用于遍历任何对象，主要用于数据处理，比如数组，对象
+        //里面的函数有两个参数：index 是每个元素的索引号，element 是遍历内容
+        $.each($("div"), function(i, ele) {
+            console.log(i);
+            console.log(ele); //输出结果和上面的一样
+        })
+        $.each(arr, function(i, ele) {
+            //遍历数组
+            console.log(i);
+            console.log(ele);
+        })
+        $.each({
+            name: "andy",
+            age: 18
+        }, function(i, ele) {
+            console.log(i); //输出的是 name age 属性名
+            console.log(ele); //输出的是 andy 18 属性值
+        })
+    })
+</script>
+
+</html>

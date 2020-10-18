@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: violet;
+        }
+        .new{
+            background-color:rebeccapurple;
+        }
+    </style>
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+    <script>
+        $(function(){
+        //   //修改简单样式：
+        //   //1.参数只写属性名，则是返回属性值
+        //   console.log($("div").css("width"));//打印 200px
+        //  //2.参数是属性名，属性值，逗号分隔，是设置一组样式，
+        //  //属性必须加引号，值如果是数字可以不用跟单位和引号
+        //   $("div").css("width","300px");//宽度改为了300px
+        //   //3.参数可以是对象形式，方便设置多组样式，属性名和属性值用冒号隔开，
+        //   //属性可以不加引号，如果是复合属性则必须采取驼峰命名法，如果值不是数字，则必须加引号
+        //   $("div").css({width:400,backgroundColor:'blue'});
+          
+          //使用类修改多个样式
+          //1.添加类
+          $("div").click(function(){
+            $(this).addClass("new");
+          })
+          //2.删除类
+          $("div").click(function(){
+            $(this).removeClass("new");
+          })
+          //3.切换类  如果有这个类，就去掉，如果没有，就加上
+          $("div").click(function(){
+            $(this).toggleClass("new");
+          })
+        })
+    </script>
+    <div></div>
+</body>
+</html>

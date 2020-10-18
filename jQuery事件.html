@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+        }
+        
+        .current {
+            background-color: blue;
+        }
+    </style>
+</head>
+<script src="jquery.min.js"></script>
+
+<body>
+    <div></div>
+    <ul>
+        <li>加油</li>
+        <li>加油</li>
+        <li>加油</li>
+    </ul>
+    <ol>
+
+    </ol>
+    <script>
+        $(function() {
+            // 1. on ( ) 实现多个事件注册：
+            // $("div").on({
+            //     mouseenter: function() {
+            //         $(this).stop().css("background", "green")
+            //     },
+            //     click: function() {
+            //         $(this).stop().css("background", "yellow")
+            //     },
+            //     mouselezve: function() {
+            //         $(this).stop().css("background", "red")
+            //     }
+            // })
+
+            // $("div").on("mouseover mouseleave", function() {
+            //     $(this).toggleClass("current")
+            // })
+
+            //2.on( ) 实现事件委托（委派）
+            // $("ul").on("click", "li", function() {
+            //     $(this).css("color", "red");
+            //     //click 是绑定在 ul 身上的，但触发的对象是 ul 里面的 li
+            // })
+
+            //3.on ( ) 可以给未来动态创建的元素绑定事件
+            // $("ol").on("click", 'li', function() {
+            //     $(this).css("color", "red");
+            //     //这个li是后来创建的 用普通的注册事件不能实现
+            // })
+            // var li = $("<li>新添加的</li>");
+            // $("ol").append(li);
+
+            //如果有的事件只想触发一次，可以使用one()来绑定事件
+            // $("ul").one("click", 'li', function() {
+            //     $(this).css("color", "red");
+            // })
+
+            //事件解绑 off()方法
+            // $("div").off(); //如果括号内为空，div上面的所有事件都被解除
+            // $("div").off("click"); //解除div的点击事件
+            // $("ol").off("click", 'li'); //解除事件委托
+
+            //自动触发事件 trigger()
+            // $("div").on("click", function() {
+            //         alert(11);
+            //     })
+            //     //自动触发事件
+            //     //1.element.事件()
+            // $("div").click();
+            // //2.element.trigger("事件")
+            // $("div").trigger("click");
+            // //3.element.triggerHandler事件() 最大的区别就是不会触发元素的默认行为
+            // $("div").triggerHandler("click");
+            // $("input").on("focus",function(){
+            //     $(this).val("你好吗")
+            // }) 
+            // //输入框有一个默认行为是光标闪烁，利用triggerHandler就不会出现光标闪烁现象
+            // $("input").triggerHandler("foucus")
+
+
+            //jQuery事件对象
+            $(document).on("click", function(e) {
+                console.log("点击了document");
+            })
+            $("div").on("click", function(e) {
+                    console.log("点击了div");
+                    e.stopPropagation(); //协商这个，就可以阻止其冒泡行为
+                })
+                //点击后由于事件冒泡会先后出现 点击了div 点击了document
+
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <script>
+        $(function() {
+            var targetObj = {}
+            var obj = {
+                    id: 1,
+                    name: "andy"
+                }
+                //$.extend([deep],target,object1,[objectN]
+            $.extend(targetObj, obj); //把obj 拷贝给 targetObj
+            console.log(targetObj);
+
+            var targetObj = {
+                id: 0
+            };
+            var obj = {
+                    id: 1,
+                    name: "andy",
+                    msg: {
+                        age: 18
+                    }
+                }
+                //如果原来的数组里已经有数据，则会覆盖掉原来的数据
+            $.extend(targetObj, obj); //把obj 拷贝给 targetObj
+            console.log(targetObj); //拷贝后 为{id: 1, name: 'andy', msg: {…}}
+
+
+
+        })
+    </script>
+</body>
+
+</html>

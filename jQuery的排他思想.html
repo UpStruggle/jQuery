@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+    <button>选择</button>
+    <button>选择</button>
+    <button>选择</button>
+    <button>选择</button>
+    <button>选择</button>
+    <button>选择</button>
+    <script>
+     $(function(){
+         $("button").click(function(){
+         //给所有按钮绑定点击事件
+         //当前元素变化背景颜色
+         $(this).css("background",'red');
+         //其余兄弟去除背景颜色
+         $(this).siblings("button").css("background",'');
+            })
+        })
+    </script>
+</body>
+</html>
