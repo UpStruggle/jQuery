@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        li,
+        a{
+            text-decoration: none;
+            list-style: none;
+        }
+        .wrapper{
+           margin: 100px auto;
+           width: 400px;
+           height: 405px;
+           border: 1px solid pink;
+        }
+        #left {
+            float: left;
+            width: 100px;
+            height: 400px;
+        }
+        #left ul li{
+            width: 100px;
+            height: 44px;
+            border-bottom: 1px solid pink;
+            border-right: 1px solid pink;
+            line-height: 44px;
+            text-align: center;
+        }
+        img{
+            float: right;
+            width: 300px;
+            height: 405px;
+        }
+        li:hover{
+            background-color: plum;
+        }
+    </style>
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+    <script>
+        $(function(){
+            //1.鼠标经过左侧盒子某个li
+            $('#left li').mouseover(function(){
+                //2.得到当前li的索引号
+                var index = $(this).index();
+                //3.让右侧盒子相应索引号的图品显示出来可以通过eq(index)方法去选择
+                $('#content div').eq(index).show();
+                //4.其它盒子隐藏
+                $('#content div').eq(index).siblings().hide();
+            })
+        })
+    </script>
+    <div class="wrapper">
+        <div id="left">
+            <ul>
+                <li><a herf="#">女靴</a></li>
+                <li><a herf="#">雪地靴</a></li>
+                <li><a herf="#">冬裙</a></li>
+                <li><a herf="#">呢大衣</a></li>
+                <li><a herf="#">毛衣</a></li>
+                <li><a herf="#">棉服</a></li>
+                <li><a herf="#">女裤</a></li>
+                <li><a herf="#">羽绒服</a></li>
+                <li><a herf="#">牛仔裤</a></li>
+            </ul>
+        </div>
+        <div id="content">
+            <div><img src="images/xs.jpg" alt=""></div>
+            <div><img src="images/zjl.jpg" alt=""></div>
+            <div><img src="images/zyl.jpg" alt=""></div>
+            <div><img src="images/zxc.jpg" alt=""></div>
+            <div><img src="images/mobile.2.jpg" alt=""></div>
+            <div><img src="images/mobile1.jpg" alt=""></div>
+            <div><img src="images/mobile2.jpg" alt=""></div>
+            <div><img src="images/mobile3.jpg" alt=""></div>
+            <div><img src="images/img1.jpg" alt=""></div>
+        </div>
+    </div>
+</body>
+</html>

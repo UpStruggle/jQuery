@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            width: 700px;
+            height: 300px;
+            margin: 100px auto;
+            border: 1px solid #000;
+        }
+        
+        p {
+            position: absolute;
+            top: 175px;
+            left: 10px;
+        }
+        
+        textarea {
+            position: absolute;
+            top: 60px;
+            left: 85px;
+            width: 500px;
+        }
+        
+        button {
+            position: absolute;
+            top: 190px;
+            left: 600px;
+        }
+        
+        .show {
+            position: absolute;
+            top: 200px;
+            left: 70px;
+        }
+        
+        .show ul li {
+            border-bottom: 1px dashed rgb(121, 112, 112);
+            display: none;
+            width: 480px;
+        }
+        
+        .show ul li a {
+            float: right;
+        }
+    </style>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="box">
+        <p>微博发布</p>
+        <textarea name="" id="" cols="30" rows="10" class="txt"></textarea>
+        <button class="btn">发布</button>
+        <div class="show">
+            <ul>
+
+            </ul>
+        </div>
+    </div>
+</body>
+<script>
+    $(function() {
+        //1.点击发布按钮，动态创建一个li 放入文本框的内容和删除按钮，并添加到ul中
+        $(".btn").on("click", function() {
+                var li = $("<li></li>");
+                li.html($(".txt").val() + "<a href='javascript:;'>删除</a>")
+                $('ul').prepend(li);
+                li.slideDown(); //让li滑动处理
+                $(".txt").val(""); //发布后清空文本框的内容
+            })
+            //2.点击删除按钮，就删除当前的li
+        $("ul").on("click", "a", function() {
+            //on 可以给动态创建的元素绑定事件
+            $(this).parent().slideUp(function() {
+                //上拉完毕后删除
+                $(this).remove();
+            });
+
+        })
+    })
+</script>
+
+</html>

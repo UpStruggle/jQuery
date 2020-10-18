@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        li,
+        a {
+            text-decoration: none;
+            list-style: none;
+        }
+        
+        .nav {
+            width: 300px;
+            margin: 100px auto;
+        }
+        
+        a:hover {
+            background-color: bisque;
+        }
+        
+        .nav>li {
+            display: inline-block;
+            width: 40px;
+            height: 400px;
+            margin: auto 5px;
+        }
+        
+        .nav ul {
+            position: absolute;
+            display: none;
+        }
+        
+        .nav ul>li {
+            border-left: 1px solid rgb(143, 106, 106);
+            border-right: 1px solid rgb(143, 106, 106);
+            border-bottom: 1px solid rgb(143, 106, 106);
+        }
+    </style>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="nav">
+        <li>
+            <a href="#">菜单</a>
+            <ul>
+                <li>选项</li>
+                <li>选项</li>
+                <li>选项</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">菜单</a>
+            <ul>
+                <li>选项</li>
+                <li>选项</li>
+                <li>选项</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">菜单</a>
+            <ul>
+                <li>选项</li>
+                <li>选项</li>
+                <li>选项</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">菜单</a>
+            <ul>
+                <li>选项</li>
+                <li>选项</li>
+                <li>选项</li>
+            </ul>
+        </li>
+    </div>
+    <script>
+        $(function() {
+            // $('.nav>li').mouseover(function(){
+            //     //鼠标经过
+            //     // $(this) jquery当前元素 this不要加引号
+            //     $(this).children("ul").slideDown(200);
+            // })
+            // //鼠标离开
+            // $('.nav>li').mouseleave(function(){
+            //     $(this).children('ul').slideUp(200);
+            // })
+
+            //jQuery效果3.切换事件
+            //简洁版1.  切换事件 就是鼠标经过和离开的复合写法
+            // $(".nav > li").hover(function() {
+            //     //鼠标经过的函数
+            //     $(this).children("ul").slideDown(200);
+            // }, function() {
+            //     //鼠标离开的函数
+            //     $(this).children('ul').slideUp(200);
+            // });
+
+            ////jQuery效果4.动画队列及停止排队
+            //简洁版2：事件切换 hover 如果只写一个函数，那么鼠标经过和鼠标离开都会触发这个函数
+            $(".nav > li").hover(function() {
+                //stop()必须写到动画或者效果的前面
+                $(this).children("ul").stop().slideToggle();
+            })
+
+        })
+    </script>
+</body>
+
+</html>
